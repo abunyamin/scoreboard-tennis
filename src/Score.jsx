@@ -35,13 +35,7 @@ const localScores = JSON.parse(localStorage.getItem("scores")) || []
   const [idState, setIdState] = useState(new Date().getTime());
   
   const { speak, voices } = useSpeechSynthesis();
-
-  const dataConfirm = (dataID) => {
-    const localData = localScores.filter(score => score.id == dataID)
-
-return localData.id ? true : false
- }
-
+  
  const deleteScore = (event) => {
   const dataId = event.currentTarget.dataset.id;
   const localData = localScores.filter(score => score.id != dataId)
@@ -320,7 +314,7 @@ return (
 
     </div>
     </>
-    ) : ''}
+    ) : <div className="flex justify-center items-center text-3xl text-white h-full w-full">Data Skor belum tersimpan</div>}
 
 </div>
 </div>
